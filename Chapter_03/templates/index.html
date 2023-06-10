@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenAI API Interaction</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .input-box {
+            width: 500px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .output-box {
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea id="inputBox" class="input-box"></textarea>
+        <button onclick="getOpenAIResponse()" class="btn">Generate Response</button>
+        <textarea id="outputBox" class="output-box" readonly></textarea>
+    </div>
+
+    <script>
+        async function getOpenAIResponse() {
+            const prompt = document.getElementById('inputBox').value;
+            const responseBox = document.getElementById('outputBox');
+            
+            // Make a POST request to the FastAPI endpoint
+            const response = await fetch('/openai/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            const responseData = await response.json();
+
+            // Display the response in the output box
+            responseBox.value = responseData.choices;
+        }
+    </script>
+</body>
+</html>
