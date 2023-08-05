@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beer Style Prediction</title>
+</head>
+<body>
+    <h1>Beer Style Prediction</h1>
+    <form method="post" action="/predict/">
+        <table>
+            <tr>
+                <td><label for="min_ibu">Min IBU:</label></td>
+                <td><input type="number" id="min_ibu" name="min_ibu" min="0" max="100" value="25"></td>
+            </tr>
+            <tr>
+                <td><label for="max_ibu">Max IBU:</label></td>
+                <td><input type="number" id="max_ibu" name="max_ibu" min="0" max="100" value="40"></td>
+            </tr>
+            <tr>
+                <td><label for="astringency">Astringency:</label></td>
+                <td><input type="number" id="astringency" name="astringency" min="0" max="100" value="32"></td>
+            </tr>
+            <tr>
+                <td><label for="body">Body:</label></td>
+                <td><input type="number" id="body" name="body" min="0" max="100" value="27"></td>
+            </tr>
+            <tr>
+                <td><label for="alcohol">Alcohol:</label></td>
+                <td><input type="number" id="alcohol" name="alcohol" min="0" max="100" value="5"></td>
+            </tr>
+            <tr>
+                <td><label for="bitter">Bitter:</label></td>
+                <td><input type="number" id="bitter" name="bitter" min="0" max="150" value="36"></td>
+            </tr>
+            <tr>
+                <td><label for="sweet">Sweet:</label></td>
+                <td><input type="number" id="sweet" name="sweet" min="0" max="150" value="43"></td>
+            </tr>
+            <tr>
+                <td><label for="sour">Sour:</label></td>
+                <td><input type="number" id="sour" name="sour" min="0" max="100" value="18"></td>
+            </tr>
+            <tr>
+                <td><label for="salty">Salty:</label></td>
+                <td><input type="number" id="salty" name="salty" min="0" max="100" value="7"></td>
+            </tr>
+            <tr>
+                <td><label for="fruits">Fruits:</label></td>
+                <td><input type="number" id="fruits" name="fruits" min="0" max="100" value="18"></td>
+            </tr>
+            <tr>
+                <td><label for="hoppy">Hoppy:</label></td>
+                <td><input type="number" id="hoppy" name="hoppy" min="0" max="100" value="58"></td>
+            </tr>
+            <tr>
+                <td><label for="spices">Spices:</label></td>
+                <td><input type="number" id="spices" name="spices" min="0" max="100" value="5"></td>
+            </tr>
+            <tr>
+                <td><label for="malty">Malty:</label></td>
+                <td><input type="number" id="malty" name="malty" min="0" max="150" value="70"></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
