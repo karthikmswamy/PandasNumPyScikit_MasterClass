@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Beer Style Prediction</h1>
-    <form method="post" action="/predict/">
+    <form id="predict-form" method="post">
         <table>
             <tr>
                 <td><label for="min_ibu">Min IBU:</label></td>
@@ -61,7 +61,30 @@
             </tr>
         </table>
 
-        <input type="submit" value="Predict">
+        <button type="button" onclick="predict()">Predict</button>
     </form>
+
+    <div id="prediction-result"></div>
+
+    <script>
+        function predict() {
+            var form = document.getElementById("predict-form");
+            var formData = new FormData(form);
+            
+            fetch("/predict", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())  // Parse response as JSON
+            .then(result => {
+                console.log(result);
+                // Display the predicted beer style
+                document.getElementById("prediction-result").innerHTML = "Predicted Beer Style: " + result.Style + " with ABV: " + result.ABV;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    </script>
 </body>
 </html>
